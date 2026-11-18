@@ -27,84 +27,16 @@ fetch("./data/presentation.json")
         );
 
         sceneEngine.start();
-        setTimeout(() => {
 
-    const scene =
-        sceneEngine.getCurrentScene();
-
-    scene.renderer.update({
-
-        id: "typing"
-
-    });
-
-}, 1000);
-
-setTimeout(() => {
-
-    stateEngine.nextState();
-
-}, 1000);
-
-setTimeout(() => {
-
-    stateEngine.nextState();
-
-}, 5000);
-
-        setTimeout(() => {
-
-    const scene =
-        sceneEngine.getCurrentScene();
-
-    scene.renderer.update({
-
-        id: "collapse"
-
-    });
-
-}, 8000);
-        
         window.sceneEngine =
             sceneEngine;
 
         window.stateEngine =
             stateEngine;
 
-        /*
-        SPRINT 2.2
-        Simulación manual de estados
-        */
-
-        setTimeout(() => {
-
-            const scene =
-                sceneEngine.getCurrentScene?.();
-
-            if (!scene?.renderer) {
-                return;
-            }
-
-            scene.renderer.update({
-                id: "typing"
-            });
-
-        }, 1000);
-
-        setTimeout(() => {
-
-            const scene =
-                sceneEngine.getCurrentScene?.();
-
-            if (!scene?.renderer) {
-                return;
-            }
-
-            scene.renderer.update({
-                id: "complete"
-            });
-
-        }, 5000);
+        console.log(
+            "Framework iniciado"
+        );
 
     })
 
