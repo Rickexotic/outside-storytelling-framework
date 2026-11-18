@@ -77,16 +77,7 @@ switch(scene.type) {
 
         break;
 
-    default:
-
-        console.warn(
-            "Renderer no implementado:",
-            scene.type
-        );
-
-        return;
-
-}
+   
         default:
 
             console.warn(
