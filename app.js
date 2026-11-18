@@ -42,17 +42,16 @@ fetch("./data/presentation.json")
 
 setTimeout(() => {
 
-    const scene =
-        sceneEngine.getCurrentScene();
+    stateEngine.nextState();
 
-    scene.renderer.update({
+}, 1000);
 
-        id: "complete"
+setTimeout(() => {
 
-    });
+    stateEngine.nextState();
 
 }, 5000);
-
+        
         window.sceneEngine =
             sceneEngine;
 
