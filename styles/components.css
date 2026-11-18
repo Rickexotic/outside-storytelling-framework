@@ -99,3 +99,11 @@
         1s infinite;
 
 }
+
+.hero-collapsed {
+
+    transform: translateY(-35vh);
+
+    transition: transform 1s ease;
+
+}
