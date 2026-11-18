@@ -1,3 +1,5 @@
+import { HeroRenderer } from "../renderers/hero.renderer.js";
+
 export class SceneEngine {
 
   constructor({
@@ -27,20 +29,63 @@ export class SceneEngine {
 
   }
 
-  start() {
+ start() {
 
     const scene =
-      this.scenes[this.currentSceneIndex];
+        this.scenes[this.currentSceneIndex];
 
     console.log(
-      "[Scene Start]",
-      scene.id
+        "[Scene Start]",
+        scene.id
     );
 
     this.stateEngine.start(scene);
 
-  }
+    this.renderScene(scene);
 
+}
+
+  renderScene(scene) {
+
+    const container =
+        document.getElementById(
+            "scene-container"
+        );
+
+    container.innerHTML = "";
+
+    let renderer = null;
+
+    switch(scene.type) {
+
+        case "hero-scene":
+
+            renderer =
+                new HeroRenderer(scene);
+
+            break;
+
+        default:
+
+            console.warn(
+                "Renderer no implementado:",
+                scene.type
+            );
+
+            return;
+
+    }
+
+    const element =
+        renderer.render();
+
+    container.appendChild(
+        element
+    );
+
+    renderer.enter();
+
+}
   nextScene() {
 
     if (
