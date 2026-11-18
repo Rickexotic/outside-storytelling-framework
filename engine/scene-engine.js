@@ -74,16 +74,18 @@ switch(scene.type) {
 
         break;
 
+switch(scene.type) {
+
+    case "hero-scene":
+
+        renderer =
+            new HeroRenderer(
+                scene
+            );
+
+        break;
+
     case "chapter-scene":
-
-    case "timeline-scene":
-
-    renderer =
-        new TimelineRenderer(
-            scene
-        );
-
-    break;
 
         renderer =
             new ChapterRenderer(
@@ -92,7 +94,25 @@ switch(scene.type) {
 
         break;
 
-   
+    case "timeline-scene":
+
+        renderer =
+            new TimelineRenderer(
+                scene
+            );
+
+        break;
+
+    default:
+
+        console.warn(
+            "Renderer no implementado:",
+            scene.type
+        );
+
+        return;
+
+}   
         default:
 
             console.warn(
