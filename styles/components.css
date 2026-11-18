@@ -160,3 +160,18 @@
     margin: 0;
 
 }
+
+.hero-collapsed {
+
+    transform: translateY(-30vh)
+               scale(.75);
+
+    transform-origin:
+
+        top center;
+
+    transition:
+
+        transform 1s ease;
+
+}
