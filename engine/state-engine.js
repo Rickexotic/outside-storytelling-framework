@@ -1,44 +1,96 @@
 export class StateEngine {
 
-  constructor() {
+constructor() {
+
     this.states = [];
-    this.currentIndex = 0;
-  }
-
-  start(scene) {
-
-    this.states = scene.states || [];
 
     this.currentIndex = 0;
 
-    return this.getCurrentState();
+    this.renderer = null;
 
-  }
+}
+ start(scene) {
 
-  nextState() {
+    this.states =
+        scene.states || [];
 
-    if (this.currentIndex < this.states.length - 1) {
+    this.currentIndex = 0;
 
-      this.currentIndex++;
+    this.renderer =
+        scene.renderer || null;
+
+    const currentState =
+        this.getCurrentState();
+
+    if (
+        this.renderer &&
+        currentState
+    ) {
+
+        this.renderer.update(
+            currentState
+        );
 
     }
 
-    return this.getCurrentState();
+    return currentState;
 
-  }
+}
+ nextState() {
 
-  previousState() {
+    if (
+        this.currentIndex <
+        this.states.length - 1
+    ) {
 
-    if (this.currentIndex > 0) {
-
-      this.currentIndex--;
+        this.currentIndex++;
 
     }
 
-    return this.getCurrentState();
+    const state =
+        this.getCurrentState();
 
-  }
+    if (
+        this.renderer &&
+        state
+    ) {
 
+        this.renderer.update(
+            state
+        );
+
+    }
+
+    return state;
+
+}
+previousState() {
+
+    if (
+        this.currentIndex > 0
+    ) {
+
+        this.currentIndex--;
+
+    }
+
+    const state =
+        this.getCurrentState();
+
+    if (
+        this.renderer &&
+        state
+    ) {
+
+        this.renderer.update(
+            state
+        );
+
+    }
+
+    return state;
+
+}
   getCurrentState() {
 
     return this.states[this.currentIndex];
