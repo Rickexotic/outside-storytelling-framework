@@ -1,0 +1,1 @@
+async function init(){const p=await fetch('./data/presentation.json').then(r=>r.json());const app=document.getElementById('app');p.scenes.forEach(s=>{const el=document.createElement('section');el.className='scene';el.innerHTML=`<div><div class="headline">${s.title||s.statement||s.id}</div></div>`;app.appendChild(el);});}init();

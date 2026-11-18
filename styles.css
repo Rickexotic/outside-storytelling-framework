@@ -1,0 +1,1 @@
+:root{--bg:#F0EFEB;--text:#201C2D;--accent:#BFB2EA;--highlight:#E4F497;}body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg);color:var(--text)}#app{min-height:100vh}.scene{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:10vw}.headline{font-size:clamp(3rem,6vw,6rem);font-weight:300}
