@@ -49,56 +49,113 @@ export class HeroRenderer {
 
 }
 
-  render() {
+render() {
 
     const section =
-      document.createElement("section");
+        document.createElement("section");
 
     section.className =
-      "hero-scene";
+        "hero-scene";
 
-   const headline =
-    this.resolveHeadline();
+    const headline =
+        this.resolveHeadline();
 
-section.innerHTML = `
-    <div class="hero-content">
+    const isSearchMode =
+        this.scene.layout?.desktop ===
+        "search";
 
-        <h1 class="hero-title">
-            ${headline}
-        </h1>
+    if (isSearchMode) {
 
-    </div>
-`;
+        section.innerHTML = `
+            <div class="hero-content">
+
+                <div class="search-hero">
+
+                    <div class="search-bar">
+
+                        <span
+                            id="search-text"
+                            class="search-text">
+                        </span>
+
+                        <span
+                            class="search-cursor">
+                            |
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+        `;
+
+    } else {
+
+        section.innerHTML = `
+            <div class="hero-content">
+
+                <h1 class="hero-title">
+                    ${headline}
+                </h1>
+
+            </div>
+        `;
+
+    }
 
     this.root = section;
 
     return section;
-  }
 
-  enter() {
-
-    console.log(
-      "[HeroRenderer] enter"
-    );
-
-  }
-
-  update(state) {
+}
+enter() {
 
     console.log(
-      "[HeroRenderer] update",
-      state
+        "[HeroRenderer] enter"
     );
 
-  }
+    const searchText =
+        document.getElementById(
+            "search-text"
+        );
 
-  exit() {
+    if (!searchText) {
 
-    console.log(
-      "[HeroRenderer] exit"
-    );
+        return;
 
-  }
+    }
+
+    const text =
+        this.resolveHeadline();
+
+    let index = 0;
+
+    const timer =
+        setInterval(() => {
+
+            searchText.textContent =
+                text.slice(
+                    0,
+                    index
+                );
+
+            index++;
+
+            if (
+                index >
+                text.length
+            ) {
+
+                clearInterval(
+                    timer
+                );
+
+            }
+
+        }, 30);
+
+}
 
 }
 
