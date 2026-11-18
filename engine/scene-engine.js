@@ -1,4 +1,5 @@
 import { HeroRenderer } from "../renderers/hero.renderer.js";
+import { ChapterRenderer } from "../renderers/chapter.renderer.js";
 
 export class SceneEngine {
 
@@ -59,7 +60,14 @@ export class SceneEngine {
     switch(scene.type) {
 
         case "hero-scene":
+        case "chapter-scene":
 
+    renderer =
+        new ChapterRenderer(
+            scene
+        );
+
+    break;
             renderer =
                 new HeroRenderer(scene);
 
