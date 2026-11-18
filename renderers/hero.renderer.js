@@ -155,6 +155,20 @@ update(state) {
                 text;
 
             break;
+      case "collapse":
+
+    this.searchText.textContent =
+        text;
+
+    if (this.root) {
+
+        this.root.classList.add(
+            "hero-collapsed"
+        );
+
+    }
+
+    break;
 
     }
 
