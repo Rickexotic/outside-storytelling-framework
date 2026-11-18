@@ -8,6 +8,47 @@ export class HeroRenderer {
 
   }
 
+  resolveHeadline() {
+
+    const headline =
+        this.scene.headline;
+
+    if (!headline) {
+
+        return "";
+
+    }
+
+    const width =
+        window.innerWidth;
+
+    if (
+        width <= 768 &&
+        headline.mobile
+    ) {
+
+        return headline.mobile;
+
+    }
+
+    if (
+        width <= 1024 &&
+        headline.tablet
+    ) {
+
+        return headline.tablet;
+
+    }
+
+    return (
+        headline.desktop ||
+        headline.tablet ||
+        headline.mobile ||
+        ""
+    );
+
+}
+
   render() {
 
     const section =
@@ -16,15 +57,18 @@ export class HeroRenderer {
     section.className =
       "hero-scene";
 
-    section.innerHTML = `
-      <div class="hero-content">
+   const headline =
+    this.resolveHeadline();
+
+section.innerHTML = `
+    <div class="hero-content">
 
         <h1 class="hero-title">
-          ${this.scene.title}
+            ${headline}
         </h1>
 
-      </div>
-    `;
+    </div>
+`;
 
     this.root = section;
 
