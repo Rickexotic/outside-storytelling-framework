@@ -1,1 +1,27 @@
+:root {
 
+    /* LIGHT */
+
+    --bg: #F0EFEB;
+    --text: #201C2D;
+    --accent: #BFB2EA;
+    --highlight: #E4F497;
+
+    --surface: #F6F5F1;
+
+    --safe-area-width: 80%;
+
+    --nav-height: 72px;
+
+    --progress-height: 48px;
+}
+
+[data-theme="dark"] {
+
+    --bg: #1A1630;
+    --text: #F7F6F2;
+    --accent: #BFB2EA;
+    --highlight: #E4F497;
+
+    --surface: #231F42;
+}
