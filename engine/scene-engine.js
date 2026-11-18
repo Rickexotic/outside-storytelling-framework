@@ -57,22 +57,36 @@ activeContainer.innerHTML = "";
     
     let renderer = null;
 
-    switch(scene.type) {
+switch(scene.type) {
 
-        case "hero-scene":
-        case "chapter-scene":
+    case "hero-scene":
 
-    renderer =
-        new ChapterRenderer(
-            scene
+        renderer =
+            new HeroRenderer(
+                scene
+            );
+
+        break;
+
+    case "chapter-scene":
+
+        renderer =
+            new ChapterRenderer(
+                scene
+            );
+
+        break;
+
+    default:
+
+        console.warn(
+            "Renderer no implementado:",
+            scene.type
         );
 
-    break;
-            renderer =
-                new HeroRenderer(scene);
+        return;
 
-            break;
-
+}
         default:
 
             console.warn(
