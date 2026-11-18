@@ -193,6 +193,6 @@ typeText(text) {
 
 }
 
-}
+
 }
 
