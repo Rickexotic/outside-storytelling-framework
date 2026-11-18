@@ -27,24 +27,7 @@ fetch("./data/presentation.json")
         );
 
         sceneEngine.start();
-        setTimeout(() => {
-
-    const scene =
-        sceneEngine.getCurrentScene();
-
-    scene.renderer.update({
-
-        id: "collapse"
-
-    });
-
-}, 4000);
-
-setTimeout(() => {
-
-    sceneEngine.nextScene();
-
-}, 5500);
+      
 
         window.sceneEngine =
             sceneEngine;
