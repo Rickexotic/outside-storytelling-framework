@@ -109,6 +109,11 @@ if (
         element
     );
 
+  incomingContainer
+    .classList.add(
+        "scene-visible"
+    );
+
 } else {
 
     activeContainer.innerHTML =
