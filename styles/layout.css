@@ -1,1 +1,96 @@
+body {
 
+    background: var(--bg);
+
+}
+
+#app {
+
+    min-height: 100vh;
+
+    display: grid;
+
+    grid-template-rows:
+
+        var(--nav-height)
+        1fr
+        var(--progress-height);
+
+}
+
+#navigation {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: var(--nav-height);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 5vw;
+
+    z-index: 1000;
+
+    background: transparent;
+
+}
+
+#viewport {
+
+    min-height: 100vh;
+
+}
+
+#scene-container {
+
+    width: 100%;
+
+    min-height: 100vh;
+
+}
+
+#progress {
+
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: var(--progress-height);
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 5vw;
+
+    z-index: 1000;
+}
+
+.hero-scene {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.hero-content {
+
+    width: var(--safe-area-width);
+
+    margin: auto;
+
+}
