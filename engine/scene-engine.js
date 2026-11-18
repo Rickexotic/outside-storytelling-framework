@@ -91,8 +91,10 @@ en la escena activa
 scene.renderer =
     renderer;
 
-renderer.enter();
+this.stateEngine.renderer =
+    renderer;
 
+renderer.enter();
 }
 nextScene() {
 
