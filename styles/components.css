@@ -46,17 +46,17 @@
 .search-bar {
 
     width: min(
-        100%,
-        900px
+        92%,
+        760px
     );
 
-    min-height: 80px;
+    min-height: 96px;
 
     padding:
-        1.5rem
-        2rem;
+        2rem
+        2.25rem;
 
-    border-radius: 999px;
+    border-radius: 32px;
 
     background: white;
 
@@ -66,42 +66,40 @@
             32,
             28,
             45,
-            .08
+            .06
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(
+            32,
+            28,
+            45,
+            .06
         );
 
     display: flex;
 
     align-items: center;
 
-    font-size:
-        clamp(
-            1.25rem,
-            2vw,
-            2rem
-        );
-
-    color: var(--text);
-    overflow: visible;
-
-    visibility: visible;
-    
 }
 
 .search-text {
 
     flex: 1;
 
-    display: block;
-
     color: var(--text);
 
-    font-family: "Segoe UI", sans-serif;
+    font-size:
+        clamp(
+            1.4rem,
+            2vw,
+            2.1rem
+        );
 
-    font-size: inherit;
+    font-weight: 300;
 
-    line-height: 1.4;
-
-    white-space: normal;
+    line-height: 1.25;
 
 }
 
@@ -109,9 +107,12 @@
 
     color: var(--accent);
 
+    font-size: 2rem;
+
+    opacity: .75;
+
     animation:
-        blink
-        1s infinite;
+        blink 1s infinite;
 
 }
 
