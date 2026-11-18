@@ -1,7 +1,10 @@
 {
   "id": "retailnova-club-beneficios-v3",
+
   "title": "Club RetailNova",
+
   "client": "RetailNova",
+
   "version": "1.0",
 
   "theme": "outside-light",
@@ -9,100 +12,197 @@
   "mode": "scrollytelling",
 
   "navigation": {
+
     "scroll": true,
+
     "autoplay": true,
+
     "keyboard": true,
+
     "touch": true
+
   },
 
   "dataset": "retailnova-v3",
 
   "settings": {
+
     "safeArea": "80%",
+
     "reducedMotion": true,
+
     "showProgress": true
+
   },
 
   "scenes": [
 
     {
       "id": "open-search",
+
       "type": "hero-scene",
-      "title": "¿Cómo puede RetailNova aumentar la lealtad sin depender de más descuentos?",
+
+      "navigation": {
+
+        "mode": "hidden"
+
+      },
+
+      "layout": {
+
+        "desktop": "search",
+
+        "tablet": "search",
+
+        "mobile": "search"
+
+      },
+
+      "headline": {
+
+        "desktop":
+          "¿Cómo puede RetailNova aumentar la lealtad sin depender de más descuentos?",
+
+        "tablet":
+          "¿Cómo aumentar la lealtad sin depender de descuentos?",
+
+        "mobile":
+          "¿Cómo aumentar la lealtad sin más descuentos?"
+
+      },
+
+      "search": {
+
+        "enabled": true,
+
+        "typing": true,
+
+        "cursor": true
+
+      },
 
       "states": [
+
         {
-          "id": "question"
+          "id": "empty",
+          "label": "Search Empty"
+        },
+
+        {
+          "id": "typing",
+          "label": "Typing Question"
+        },
+
+        {
+          "id": "complete",
+          "label": "Question Complete"
         }
+
       ]
+
     },
 
     {
       "id": "brand-journey",
+
       "type": "timeline-scene",
 
+      "title": "Historia de RetailNova",
+
       "states": [
+
         {
           "id": "foundation"
         }
+
       ]
+
     },
 
     {
       "id": "business-today",
+
       "type": "data-scene",
 
+      "title": "Retail Hoy",
+
       "states": [
+
         {
           "id": "overview"
         }
+
       ]
+
     },
 
     {
       "id": "customer-discovery",
+
       "type": "data-scene",
 
+      "title": "Lo que descubrimos",
+
       "states": [
+
         {
           "id": "rfm-segmentation"
         }
+
       ]
+
     },
 
     {
       "id": "big-insight",
+
       "type": "insight-scene",
 
+      "title": "Insight",
+
       "states": [
+
         {
           "id": "insight"
         }
+
       ]
+
     },
 
     {
       "id": "roadmap",
+
       "type": "roadmap-scene",
 
+      "title": "Roadmap",
+
       "states": [
+
         {
           "id": "implementation"
         }
+
       ]
+
     },
 
     {
       "id": "closing",
+
       "type": "closing-scene",
 
+      "title": "Closing",
+
       "states": [
+
         {
           "id": "statement"
         }
+
       ]
+
     }
 
   ]
 }
-
