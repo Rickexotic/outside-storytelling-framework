@@ -1,1 +1,108 @@
+{
+  "id": "retailnova-club-beneficios-v3",
+  "title": "Club RetailNova",
+  "client": "RetailNova",
+  "version": "1.0",
+
+  "theme": "outside-light",
+
+  "mode": "scrollytelling",
+
+  "navigation": {
+    "scroll": true,
+    "autoplay": true,
+    "keyboard": true,
+    "touch": true
+  },
+
+  "dataset": "retailnova-v3",
+
+  "settings": {
+    "safeArea": "80%",
+    "reducedMotion": true,
+    "showProgress": true
+  },
+
+  "scenes": [
+
+    {
+      "id": "open-search",
+      "type": "hero-scene",
+      "title": "¿Cómo puede RetailNova aumentar la lealtad sin depender de más descuentos?",
+
+      "states": [
+        {
+          "id": "question"
+        }
+      ]
+    },
+
+    {
+      "id": "brand-journey",
+      "type": "timeline-scene",
+
+      "states": [
+        {
+          "id": "foundation"
+        }
+      ]
+    },
+
+    {
+      "id": "business-today",
+      "type": "data-scene",
+
+      "states": [
+        {
+          "id": "overview"
+        }
+      ]
+    },
+
+    {
+      "id": "customer-discovery",
+      "type": "data-scene",
+
+      "states": [
+        {
+          "id": "rfm-segmentation"
+        }
+      ]
+    },
+
+    {
+      "id": "big-insight",
+      "type": "insight-scene",
+
+      "states": [
+        {
+          "id": "insight"
+        }
+      ]
+    },
+
+    {
+      "id": "roadmap",
+      "type": "roadmap-scene",
+
+      "states": [
+        {
+          "id": "implementation"
+        }
+      ]
+    },
+
+    {
+      "id": "closing",
+      "type": "closing-scene",
+
+      "states": [
+        {
+          "id": "statement"
+        }
+      ]
+    }
+
+  ]
+}
 
