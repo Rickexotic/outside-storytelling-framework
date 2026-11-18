@@ -117,7 +117,7 @@ renderer.enter();
 
     this.stateEngine.start(current);
 
-    getCurrentScene() {
+    getCurrentScene() 
 
     return this.scenes[
         this.currentSceneIndex
