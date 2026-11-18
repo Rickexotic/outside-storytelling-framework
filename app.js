@@ -51,6 +51,19 @@ setTimeout(() => {
     stateEngine.nextState();
 
 }, 5000);
+
+        setTimeout(() => {
+
+    const scene =
+        sceneEngine.getCurrentScene();
+
+    scene.renderer.update({
+
+        id: "collapse"
+
+    });
+
+}, 8000);
         
         window.sceneEngine =
             sceneEngine;
