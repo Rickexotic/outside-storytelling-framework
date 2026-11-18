@@ -50,11 +50,14 @@ body {
 
 #scene-container {
 
+    position: relative;
+
     width: 100%;
 
     min-height: 100vh;
 
 }
+
 
 #progress {
 
@@ -115,5 +118,38 @@ body {
         width: 84vw;
 
     }
+
+}
+#scene-outgoing,
+#scene-active,
+#scene-incoming {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+}
+
+#scene-active {
+
+    z-index: 20;
+
+}
+
+#scene-incoming {
+
+    z-index: 30;
+
+    pointer-events: none;
+
+}
+
+#scene-outgoing {
+
+    z-index: 10;
 
 }
