@@ -102,18 +102,7 @@ switch(scene.type) {
 
         return;
 
-}   
-        default:
-
-            console.warn(
-                "Renderer no implementado:",
-                scene.type
-            );
-
-            return;
-
-    }
-    
+}    
 const element =
     renderer.render();
 
