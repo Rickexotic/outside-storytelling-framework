@@ -81,24 +81,29 @@
 
       },
 
-      "states": [
+    "states": [
 
-        {
-          "id": "empty",
-          "label": "Search Empty"
-        },
+  {
+    "id": "empty",
+    "label": "Search Empty"
+  },
 
-        {
-          "id": "typing",
-          "label": "Typing Question"
-        },
+  {
+    "id": "typing",
+    "label": "Typing Question"
+  },
 
-        {
-          "id": "complete",
-          "label": "Question Complete"
-        }
+  {
+    "id": "complete",
+    "label": "Question Complete"
+  },
 
-      ]
+  {
+    "id": "collapse",
+    "label": "Collapse Hero"
+  }
+
+]
 
     },
 
