@@ -48,13 +48,13 @@ export class SceneEngine {
 
   renderScene(scene) {
 
-    const container =
-        document.getElementById(
-            "scene-container"
-        );
+   const activeContainer =
+    document.getElementById(
+        "scene-active"
+    );
 
-    container.innerHTML = "";
-
+activeContainer.innerHTML = "";
+    
     let renderer = null;
 
     switch(scene.type) {
@@ -87,7 +87,7 @@ export class SceneEngine {
 const element =
     renderer.render();
 
-container.appendChild(
+activeContainer.appendChild(
     element
 );
 
