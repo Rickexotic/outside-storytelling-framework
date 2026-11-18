@@ -128,6 +128,16 @@ enter() {
 }
 update(state) {
 
+    console.log(
+        "[HeroRenderer] update",
+        state
+    );
+
+    console.log(
+        "[HeroRenderer] searchText",
+        this.searchText
+    );
+
     if (!this.searchText) {
 
         return;
