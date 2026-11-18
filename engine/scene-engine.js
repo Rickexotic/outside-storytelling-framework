@@ -94,36 +94,45 @@ scene.renderer =
 renderer.enter();
 
 }
-  nextScene() {
+nextScene() {
 
     if (
-      this.currentSceneIndex >=
-      this.scenes.length - 1
-    ) return;
+        this.currentSceneIndex >=
+        this.scenes.length - 1
+    ) {
+        return;
+    }
 
     const previous =
-      this.scenes[this.currentSceneIndex];
+        this.scenes[
+            this.currentSceneIndex
+        ];
 
     this.currentSceneIndex++;
 
     const current =
-      this.scenes[this.currentSceneIndex];
+        this.scenes[
+            this.currentSceneIndex
+        ];
 
     this.transitionEngine.run(
-      previous.id,
-      current.id,
-      "scene-change"
+        previous.id,
+        current.id,
+        "scene-change"
     );
 
-    this.stateEngine.start(current);
+    this.stateEngine.start(
+        current
+    );
 
-    getCurrentScene() 
+}
+
+getCurrentScene() {
 
     return this.scenes[
         this.currentSceneIndex
     ];
 
-
-  }
+}
 
 }
