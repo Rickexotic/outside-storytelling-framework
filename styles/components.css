@@ -1,1 +1,39 @@
+.hero-scene{
 
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.hero-content{
+
+    width:80%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+}
+
+.hero-title{
+
+    font-family:"Segoe UI",sans-serif;
+
+    font-size:clamp(
+        3rem,
+        8vw,
+        7rem
+    );
+
+    font-weight:300;
+
+    line-height:1.05;
+
+    color:#201C2D;
+
+}
