@@ -118,11 +118,10 @@ render() {
 enter() {
 
     this.update({
-        id: "empty"
+        id: "complete"
     });
 
 }
-
 update(state) {
 
     if (!this.searchText) {
