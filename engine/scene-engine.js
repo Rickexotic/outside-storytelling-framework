@@ -75,15 +75,23 @@ export class SceneEngine {
             return;
 
     }
+    
+const element =
+    renderer.render();
 
-    const element =
-        renderer.render();
+container.appendChild(
+    element
+);
 
-    container.appendChild(
-        element
-    );
+/*
+Guardamos el renderer
+en la escena activa
+*/
 
-    renderer.enter();
+scene.renderer =
+    renderer;
+
+renderer.enter();
 
 }
   nextScene() {
@@ -108,6 +116,13 @@ export class SceneEngine {
     );
 
     this.stateEngine.start(current);
+
+    getCurrentScene() {
+
+    return this.scenes[
+        this.currentSceneIndex
+    ];
+
 
   }
 
