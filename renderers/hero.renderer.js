@@ -121,10 +121,6 @@ enter() {
         "[HeroRenderer] enter"
     );
 
-    this.update({
-        id: "complete"
-    });
-
 }
 update(state) {
 
