@@ -1,1 +1,192 @@
-<!DOCTYPE html><html lang='es'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Outside Storytelling Framework</title><link rel='stylesheet' href='styles.css'></head><body><div id='app'></div><script src='app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="es-CL">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Outside Storytelling Framework</title>
+
+    <meta name="description"
+        content="Outside Storytelling Framework - Scrollytelling, Business Storytelling, Consulting Proposals and Executive Presentations">
+
+    <meta name="theme-color" content="#F0EFEB">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/themes.css">
+    <link rel="stylesheet" href="./styles/typography.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/animations.css">
+
+</head>
+
+<body data-theme="light">
+
+    <!-- ========================================= -->
+    <!-- APPLICATION ROOT -->
+    <!-- ========================================= -->
+
+    <div id="app">
+
+        <!-- ========================================= -->
+        <!-- OVERLAY LAYER -->
+        <!-- Loading
+             Debug
+             Scene Inspector
+             Notifications
+        -->
+        <!-- ========================================= -->
+
+        <div id="overlays">
+
+            <div id="loading-overlay" class="overlay hidden">
+
+                <div class="loading-container">
+
+                    <div class="loading-logo">
+                        Outside
+                    </div>
+
+                    <div class="loading-text">
+                        Loading Storytelling Framework...
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="debug-overlay" class="hidden"></div>
+
+            <div id="notification-overlay"></div>
+
+        </div>
+
+        <!-- ========================================= -->
+        <!-- NAVIGATION -->
+        <!-- ========================================= -->
+
+        <header id="navigation">
+
+            <div class="nav-left">
+
+                <div class="brand">
+
+                    <img
+                        id="logo-light"
+                        class="brand-logo"
+                        src="./assets/logos/outside-logo-black.png"
+                        alt="Outside">
+
+                    <img
+                        id="logo-dark"
+                        class="brand-logo hidden"
+                        src="./assets/logos/outside-logo-white.png"
+                        alt="Outside">
+
+                </div>
+
+            </div>
+
+            <div class="nav-center">
+
+                <div id="presentation-title">
+                    Outside Storytelling Framework
+                </div>
+
+            </div>
+
+            <div class="nav-right">
+
+                <button id="theme-toggle"
+                    class="icon-button"
+                    aria-label="Cambiar tema">
+                    ◐
+                </button>
+
+                <button id="autoplay-toggle"
+                    class="icon-button"
+                    aria-label="Autoplay">
+                    ▶
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- ========================================= -->
+        <!-- MAIN VIEWPORT -->
+        <!-- ========================================= -->
+
+        <main id="viewport">
+
+            <!--
+                TODAS LAS ESCENAS
+                SON RENDERIZADAS AQUÍ
+            -->
+
+            <div id="scene-container">
+
+            </div>
+
+        </main>
+
+        <!-- ========================================= -->
+        <!-- PROGRESS BAR -->
+        <!-- ========================================= -->
+
+        <footer id="progress">
+
+            <div id="progress-wrapper">
+
+                <div id="progress-meta">
+
+                    <span id="scene-number">
+                        00 / 00
+                    </span>
+
+                    <span id="scene-title">
+                        Loading...
+                    </span>
+
+                </div>
+
+                <div id="progress-track">
+
+                    <div id="progress-bar"></div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+        <!-- ========================================= -->
+        <!-- UTILITIES -->
+        <!-- Invisible framework services
+        -->
+        <!-- ========================================= -->
+
+        <div id="utilities">
+
+            <div id="intersection-observers"></div>
+
+            <div id="accessibility-layer"></div>
+
+            <div id="tooltip-layer"></div>
+
+        </div>
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- APPLICATION BOOTSTRAP -->
+    <!-- ========================================= -->
+
+    <script type="module" src="./app.js"></script>
+
+</body>
+
+</html>
