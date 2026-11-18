@@ -27,6 +27,31 @@ fetch("./data/presentation.json")
         );
 
         sceneEngine.start();
+        setTimeout(() => {
+
+    const scene =
+        sceneEngine.getCurrentScene();
+
+    scene.renderer.update({
+
+        id: "typing"
+
+    });
+
+}, 1000);
+
+setTimeout(() => {
+
+    const scene =
+        sceneEngine.getCurrentScene();
+
+    scene.renderer.update({
+
+        id: "complete"
+
+    });
+
+}, 5000);
 
         window.sceneEngine =
             sceneEngine;
