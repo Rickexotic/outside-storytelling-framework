@@ -117,6 +117,10 @@ render() {
 }
 enter() {
 
+    console.log(
+        "[HeroRenderer] enter"
+    );
+
     this.update({
         id: "complete"
     });
