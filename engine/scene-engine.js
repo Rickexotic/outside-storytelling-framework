@@ -53,6 +53,11 @@ export class SceneEngine {
         "scene-active"
     );
 
+    const incomingContainer =
+    document.getElementById(
+        "scene-incoming"
+    );
+
 activeContainer.innerHTML = "";
     
     let renderer = null;
@@ -92,10 +97,28 @@ switch(scene.type) {
 const element =
     renderer.render();
 
-activeContainer.appendChild(
-    element
-);
+if (
+    scene.type ===
+    "chapter-scene"
+) {
 
+    incomingContainer.innerHTML =
+        "";
+
+    incomingContainer.appendChild(
+        element
+    );
+
+} else {
+
+    activeContainer.innerHTML =
+        "";
+
+    activeContainer.appendChild(
+        element
+    );
+
+}
 /*
 Guardamos el renderer
 en la escena activa
