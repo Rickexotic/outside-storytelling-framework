@@ -27,6 +27,25 @@ fetch("./data/presentation.json")
         );
 
         sceneEngine.start();
+
+        setTimeout(() => {
+
+    stateEngine.nextState();
+
+}, 1000);
+
+setTimeout(() => {
+
+    stateEngine.nextState();
+
+}, 4500);
+
+setTimeout(() => {
+
+    stateEngine.nextState();
+
+}, 7500);
+
       
 
         window.sceneEngine =
