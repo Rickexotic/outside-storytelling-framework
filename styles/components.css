@@ -81,12 +81,27 @@
         );
 
     color: var(--text);
+    overflow: visible;
 
+    visibility: visible;
+    
 }
 
 .search-text {
 
     flex: 1;
+
+    display: block;
+
+    color: var(--text);
+
+    font-family: "Segoe UI", sans-serif;
+
+    font-size: inherit;
+
+    line-height: 1.4;
+
+    white-space: normal;
 
 }
 
