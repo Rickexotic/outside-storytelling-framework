@@ -125,16 +125,19 @@ nextScene() {
             this.currentSceneIndex
         ];
 
-    this.transitionEngine.run(
-        previous.id,
-        current.id,
-        "scene-change"
-    );
+  this.transitionEngine.run(
+    previous.id,
+    current.id,
+    "scene-change"
+);
 
-    this.stateEngine.start(
-        current
-    );
+this.renderScene(
+    current
+);
 
+this.stateEngine.start(
+    current
+);
 }
 
 getCurrentScene() {
