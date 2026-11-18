@@ -63,16 +63,6 @@ activeContainer.innerHTML = "";
     
     let renderer = null;
 
-switch(scene.type) {
-
-    case "hero-scene":
-
-        renderer =
-            new HeroRenderer(
-                scene
-            );
-
-        break;
 
 switch(scene.type) {
 
