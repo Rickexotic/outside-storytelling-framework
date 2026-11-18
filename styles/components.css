@@ -107,3 +107,56 @@
     transition: transform 1s ease;
 
 }
+
+.chapter-scene {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.chapter-content {
+
+    width: min(
+        80vw,
+        1200px
+    );
+
+}
+
+.chapter-label {
+
+    font-size: .85rem;
+
+    letter-spacing: .2em;
+
+    text-transform:
+        uppercase;
+
+    color: var(--accent);
+
+    margin-bottom: 1.5rem;
+
+}
+
+.chapter-title {
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        );
+
+    font-weight: 300;
+
+    line-height: 1.05;
+
+    margin: 0;
+
+}
