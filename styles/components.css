@@ -175,3 +175,21 @@
         transform 1s ease;
 
 }
+
+.scene-visible {
+
+    opacity: 1 !important;
+
+}
+
+.hero-collapsed {
+
+    transform:
+        translateY(-28vh)
+        scale(.72);
+
+    transition:
+        transform 1s ease;
+
+}
+
