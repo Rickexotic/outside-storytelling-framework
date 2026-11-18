@@ -128,10 +128,41 @@
 
   "title": "Historia de RetailNova",
 
+  "events": [
+
+    {
+      "year": "2008",
+      "title": "Fundación RetailNova"
+    },
+
+    {
+      "year": "2010",
+      "title": "Primera expansión"
+    },
+
+    {
+      "year": "2019",
+      "title": "Lanzamiento SmartBand Go"
+    },
+
+    {
+      "year": "2022",
+      "title": "Expansión Puente Alto"
+    },
+
+    {
+      "year": "2026",
+      "title": "Proyecto Club Beneficios"
+    }
+
+  ],
+
   "states": [
+
     {
       "id": "foundation"
     }
+
   ]
 }
 ,
