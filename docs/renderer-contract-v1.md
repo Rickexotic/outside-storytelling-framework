@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-El Renderer Contract V1 define la interfaz obligatoria que deben implementar todos los renderers del framework.
+El Renderer Contract V1 define la interfaz obligatoria que deben implementar todos los renderers del Outside Storytelling Framework.
 
 Su propósito es garantizar que:
 
@@ -10,6 +10,7 @@ Su propósito es garantizar que:
 - El motor pueda controlar cualquier escena sin conocer detalles internos.
 - Nuevos tipos de escena puedan incorporarse sin modificar los engines.
 - La lógica narrativa permanezca separada de la visualización.
+- El mismo contenido pueda renderizarse en HTML, React, PDF o PowerPoint sin modificar los datos.
 
 ---
 
@@ -23,6 +24,7 @@ No debe:
 - Consultar APIs.
 - Calcular KPIs.
 - Decidir narrativa.
+- Conocer la industria del cliente.
 
 El renderer sólo:
 
@@ -52,13 +54,15 @@ Transition Engine
 
 La misma escena debe poder renderizarse mediante:
 
-- HTML
-- React
-- PDF
-- PowerPoint
-- Canvas
+```text
+HTML
+React
+PDF
+PowerPoint
+Canvas
+```
 
-sin modificar el JSON de presentación.
+sin modificar el JSON.
 
 ---
 
@@ -92,24 +96,17 @@ class Renderer {
 
 Recibir el contexto de ejecución.
 
-## Firma
+### Firma
 
 ```javascript
 constructor(scene, context)
 ```
 
-## Parámetros
-
-### scene
-
-Configuración de la escena.
-
-### context
-
-Información global del framework.
+### Parámetros
 
 ```javascript
 {
+  scene,
   data,
   theme,
   viewport,
@@ -126,33 +123,23 @@ Información global del framework.
 
 Construir el DOM inicial.
 
-## Responsabilidades
+### Responsabilidades
 
 ✅ Crear componentes
 
 ✅ Crear contenedores
 
-✅ Aplicar estructura visual
+✅ Aplicar layout
 
-✅ Generar layout
+✅ Construir visualización
 
----
-
-## Restricciones
+### Restricciones
 
 ❌ No animar
 
-❌ No cambiar estados
+❌ No controlar scroll
 
-❌ No controlar navegación
-
----
-
-## Retorno esperado
-
-```javascript
-HTMLElement
-```
+❌ No navegar
 
 ---
 
@@ -160,26 +147,15 @@ HTMLElement
 
 ## Objetivo
 
-Activar la escena cuando se vuelve visible.
+Ejecutarse cuando la escena se vuelve visible.
 
-## Responsabilidades
+### Responsabilidades
 
-✅ Lanzar animaciones iniciales
+✅ Activar efectos iniciales
 
-✅ Activar observadores
+✅ Lanzar reveal
 
-✅ Iniciar efectos visuales
-
----
-
-## Behaviors típicos
-
-```text
-Reveal
-Fade
-Parallax
-Focus
-```
+✅ Preparar interacción
 
 ---
 
@@ -187,27 +163,9 @@ Focus
 
 ## Objetivo
 
-Responder a un cambio de estado.
+Responder a cambios de estado.
 
-## Responsabilidades
-
-✅ Transformar elementos existentes
-
-✅ Actualizar contenido
-
-✅ Ejecutar transiciones
-
----
-
-## Restricciones
-
-❌ No reconstruir la escena completa
-
-❌ No destruir elementos innecesariamente
-
----
-
-## Regla principal
+### Regla principal
 
 Siempre que sea posible:
 
@@ -215,10 +173,12 @@ Siempre que sea posible:
 Transformar
 ```
 
-en lugar de:
+y no:
 
 ```text
-Eliminar + Crear
+Destruir
+↓
+Crear
 ```
 
 ---
@@ -227,25 +187,15 @@ Eliminar + Crear
 
 ## Objetivo
 
-Preparar la salida de la escena.
+Preparar salida de escena.
 
-## Responsabilidades
+### Responsabilidades
 
 ✅ Reducir protagonismo
 
-✅ Detener observadores
+✅ Limpiar listeners temporales
 
 ✅ Preparar transición
-
----
-
-## Behaviors típicos
-
-```text
-Fade
-Blur
-Dim
-```
 
 ---
 
@@ -255,13 +205,13 @@ Dim
 
 Liberar recursos.
 
-## Responsabilidades
+### Responsabilidades
 
 ✅ Eliminar listeners
 
-✅ Eliminar timers
-
 ✅ Eliminar observers
+
+✅ Limpiar timers
 
 ✅ Eliminar elementos temporales
 
@@ -286,7 +236,7 @@ Todos los renderers reciben:
 
 # Renderer Output Contract
 
-Todos los renderers deben devolver una estructura consistente.
+Todos los renderers deben devolver:
 
 ```javascript
 {
@@ -315,35 +265,449 @@ Todos los renderers deben devolver una estructura consistente.
 
 Capturar atención.
 
+Es la escena más importante del framework.
+
+Debe:
+
+- Introducir una pregunta.
+- Presentar una idea.
+- Revelar un insight.
+- Introducir un capítulo.
+- Cerrar una narrativa.
+
 ---
 
-## Contenido esperado
+## Responsabilidades
 
-- Headline
-- Subheadline
-- Imagen opcional
-- Quote opcional
+Puede renderizar:
+
+```text
+Headline
+Subheadline
+Search Bar
+Quote
+Illustration
+Hero Image
+Concept Reveal
+```
 
 ---
 
-## Behaviors permitidos
+# Navigation Mode Contract
+
+Cada Hero Scene puede controlar el comportamiento de la navegación.
+
+---
+
+## Schema
+
+```json
+{
+  "navigation": {
+    "mode": "hidden"
+  }
+}
+```
+
+---
+
+## Valores soportados
+
+### hidden
+
+Modo recomendado.
+
+Visible:
+
+```text
+Sólo narrativa
+```
+
+Oculta:
+
+```text
+Logo
+Título
+Botones
+Navegación
+```
+
+Uso:
+
+```text
+Opening
+Insight
+Closing
+```
+
+---
+
+### minimal
+
+Visible:
+
+```text
+Logo opcional
+Theme Toggle
+Play
+Progress
+```
+
+Uso:
+
+```text
+Presentaciones ejecutivas
+Scrollytelling
+```
+
+---
+
+### full
+
+Visible:
+
+```text
+Logo
+Título
+Capítulos
+Menú
+Theme
+Play
+Progress
+```
+
+Uso:
+
+```text
+Workshops
+Framework Explorer
+```
+
+---
+
+# Responsive Content Contract
+
+El Hero Renderer soporta contenido específico por dispositivo.
+
+---
+
+## Schema
+
+```json
+{
+  "headline": {
+
+    "desktop": "",
+
+    "tablet": "",
+
+    "mobile": ""
+
+  }
+}
+```
+
+---
+
+## Ejemplo
+
+```json
+{
+  "headline": {
+
+    "desktop":
+      "¿Cómo puede RetailNova aumentar la lealtad sin depender de más descuentos?",
+
+    "tablet":
+      "¿Cómo aumentar la lealtad sin depender de descuentos?",
+
+    "mobile":
+      "¿Cómo aumentar la lealtad sin más descuentos?"
+
+  }
+}
+```
+
+---
+
+# Responsive Layout Contract
+
+Permite modificar el layout según dispositivo.
+
+---
+
+## Schema
+
+```json
+{
+  "layout": {
+
+    "desktop": "center",
+
+    "tablet": "left",
+
+    "mobile": "left"
+
+  }
+}
+```
+
+---
+
+## Valores permitidos
+
+```text
+center
+left
+right
+split
+search
+```
+
+---
+
+# Search Layout
+
+Patrón recomendado para aperturas Outside.
+
+---
+
+## Schema
+
+```json
+{
+  "layout": {
+    "desktop": "search",
+    "tablet": "search",
+    "mobile": "search"
+  }
+}
+```
+
+---
+
+# Search Bar Mode
+
+Permite aperturas tipo SaaS.
+
+---
+
+## Schema
+
+```json
+{
+  "search": {
+
+    "enabled": true,
+
+    "typing": true,
+
+    "cursor": true
+
+  }
+}
+```
+
+---
+
+## Estados sugeridos
+
+```text
+State 1
+Search Vacío
+
+↓
+
+State 2
+Typing
+
+↓
+
+State 3
+Pregunta Completa
+
+↓
+
+State 4
+Focus
+
+↓
+
+State 5
+Collapse
+```
+
+---
+
+# Media Contract
+
+Opcional.
+
+---
+
+## Schema
+
+```json
+{
+  "media": {
+
+    "type": "image",
+
+    "source": "hero.jpg"
+
+  }
+}
+```
+
+---
+
+## Valores soportados
+
+```text
+image
+video
+illustration
+3d
+none
+```
+
+---
+
+# Behaviors Permitidos
 
 ```text
 Reveal
 Focus
 Transform
 Parallax
+Pin
 ```
 
 ---
 
-## Casos de uso
+# Restricciones
+
+## Rule 01
+
+Máximo:
 
 ```text
-Apertura
-Concept Reveal
+1 mensaje principal
+```
+
+---
+
+## Rule 02
+
+Máximo:
+
+```text
+2 elementos visuales dominantes
+```
+
+---
+
+## Rule 03
+
+Debe respetar:
+
+```text
+Safe Area Horizontal
+Safe Area Vertical
+```
+
+---
+
+## Rule 04
+
+Puede utilizar contenido diferente para desktop, tablet y mobile.
+
+---
+
+# Casos de Uso
+
+```text
+Opening
+Question
+Insight
 Big Idea
-Cierre
+Concept Reveal
+Closing Statement
+```
+
+---
+
+# Ejemplo Completo
+
+```json
+{
+  "id": "open-search",
+
+  "type": "hero-scene",
+
+  "navigation": {
+    "mode": "hidden"
+  },
+
+  "layout": {
+
+    "desktop": "search",
+
+    "tablet": "search",
+
+    "mobile": "search"
+
+  },
+
+  "headline": {
+
+    "desktop":
+      "¿Cómo puede RetailNova aumentar la lealtad sin depender de más descuentos?",
+
+    "tablet":
+      "¿Cómo aumentar la lealtad sin depender de descuentos?",
+
+    "mobile":
+      "¿Cómo aumentar la lealtad sin más descuentos?"
+
+  },
+
+  "search": {
+
+    "enabled": true,
+
+    "typing": true,
+
+    "cursor": true
+
+  }
+}
+```
+
+---
+
+# Hero Rules
+
+## HERO-001
+
+```text
+Los Hero Scenes pueden controlar la navegación.
+```
+
+---
+
+## HERO-002
+
+```text
+Los Hero Scenes pueden utilizar contenido específico por dispositivo.
+```
+
+---
+
+## HERO-003
+
+```text
+Search Bar Mode es el patrón recomendado para aperturas Outside.
 ```
 
 ---
@@ -362,21 +726,9 @@ Cierre
 
 ## Objetivo
 
-Visualizar evolución temporal.
+Mostrar evolución temporal.
 
----
-
-## Input
-
-```json
-{
-  "events": []
-}
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Journey
@@ -401,13 +753,11 @@ Reveal
 
 Separar capítulos narrativos.
 
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
-Pin
 Reveal
+Pin
 ```
 
 ---
@@ -428,23 +778,19 @@ Reveal
 
 Transformar datos en comprensión.
 
----
-
-## Visualizaciones posibles
+## Visualizaciones
 
 ```text
 KPI
-Bar Chart
-Line Chart
-Scatter Plot
+Bar
+Line
+Scatter
 Treemap
 Heatmap
-Bubble Chart
+Bubble
 ```
 
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Expand
@@ -452,12 +798,6 @@ Transform
 Focus
 Grow
 ```
-
----
-
-## Restricción
-
-Nunca mostrar tablas crudas.
 
 ---
 
@@ -473,24 +813,7 @@ Nunca mostrar tablas crudas.
 
 ---
 
-## Objetivo
-
-Visualizar información geográfica.
-
----
-
-## Tecnologías sugeridas
-
-```text
-SVG
-Leaflet
-Mapbox
-D3 Geo
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Travel
@@ -512,23 +835,13 @@ Reveal
 
 ---
 
-## Objetivo
-
-Mostrar una verdad importante.
-
----
-
 ## Restricción
 
-Máximo:
-
 ```text
-25 palabras
+Máximo 25 palabras
 ```
 
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Focus
@@ -539,34 +852,7 @@ Transform
 
 # Benchmark Renderer
 
-## Tipo
-
-```json
-{
-  "type": "benchmark-scene"
-}
-```
-
----
-
-## Objetivo
-
-Comparar entidades.
-
----
-
-## Visualizaciones posibles
-
-```text
-Scorecard
-Matrix
-Cards
-Radar
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Compare
@@ -578,34 +864,7 @@ Focus
 
 # Ecosystem Renderer
 
-## Tipo
-
-```json
-{
-  "type": "ecosystem-scene"
-}
-```
-
----
-
-## Objetivo
-
-Visualizar relaciones.
-
----
-
-## Visualizaciones posibles
-
-```text
-Network Graph
-Radial Graph
-Force Graph
-Cluster Layout
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Connect
@@ -617,34 +876,7 @@ Focus
 
 # Journey Renderer
 
-## Tipo
-
-```json
-{
-  "type": "journey-scene"
-}
-```
-
----
-
-## Objetivo
-
-Mostrar un recorrido.
-
----
-
-## Casos de uso
-
-```text
-Customer Journey
-Madurez Digital
-Proceso Comercial
-Experiencia Cliente
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Journey
@@ -656,33 +888,7 @@ Reveal
 
 # Roadmap Renderer
 
-## Tipo
-
-```json
-{
-  "type": "roadmap-scene"
-}
-```
-
----
-
-## Objetivo
-
-Mostrar plan de implementación.
-
----
-
-## Visualizaciones posibles
-
-```text
-Timeline
-Roadmap
-Gantt
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Journey
@@ -693,35 +899,7 @@ Expand
 
 # Business Case Renderer
 
-## Tipo
-
-```json
-{
-  "type": "business-case-scene"
-}
-```
-
----
-
-## Objetivo
-
-Demostrar valor económico.
-
----
-
-## Visualizaciones posibles
-
-```text
-ROI
-Payback
-Flujos
-Beneficios Acumulados
-Curvas de Valor
-```
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Grow
@@ -733,31 +911,7 @@ Reveal
 
 # Closing Renderer
 
-## Tipo
-
-```json
-{
-  "type": "closing-scene"
-}
-```
-
----
-
-## Objetivo
-
-Cerrar la narrativa.
-
----
-
-## Contenido esperado
-
-- Statement Final
-- Logo
-- Espacio negativo
-
----
-
-## Behaviors permitidos
+## Behaviors
 
 ```text
 Focus
@@ -789,7 +943,7 @@ Grow
 
 Los renderers no contienen inteligencia narrativa.
 
-La inteligencia narrativa vive exclusivamente en:
+La inteligencia vive exclusivamente en:
 
 ```text
 Scene Engine
@@ -799,7 +953,7 @@ State Engine
 Transition Engine
 ```
 
-Los renderers sólo convierten:
+Los renderers únicamente convierten:
 
 ```text
 JSON
@@ -807,14 +961,4 @@ JSON
 Experiencia Visual
 ```
 
-Esta separación permite reutilizar el mismo framework para:
-
-- Retail
-- Aeropuertos
-- Metro
-- Banca
-- Salud
-- Minería
-- Educación
-
-sin modificar la arquitectura central.
+manteniendo el framework reutilizable para cualquier cliente, industria o proyecto.
