@@ -1,5 +1,6 @@
 import { HeroRenderer } from "../renderers/hero.renderer.js";
 import { ChapterRenderer } from "../renderers/chapter.renderer.js";
+import { TimelineRenderer } from "../renderers/timeline.renderer.js";
 
 export class SceneEngine {
 
@@ -74,6 +75,15 @@ switch(scene.type) {
         break;
 
     case "chapter-scene":
+
+    case "timeline-scene":
+
+    renderer =
+        new TimelineRenderer(
+            scene
+        );
+
+    break;
 
         renderer =
             new ChapterRenderer(
