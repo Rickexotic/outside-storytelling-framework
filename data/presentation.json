@@ -102,22 +102,34 @@
 
     },
 
+{
+  "id": "chapter-history",
+
+  "type": "chapter-scene",
+
+  "title": "Historia de RetailNova",
+
+  "states": [
     {
-      "id": "brand-journey",
+      "id": "intro"
+    }
+  ]
+},
 
-      "type": "timeline-scene",
+{
+  "id": "brand-journey",
 
-      "title": "Historia de RetailNova",
+  "type": "timeline-scene",
 
-      "states": [
+  "title": "Historia de RetailNova",
 
-        {
-          "id": "foundation"
-        }
-
-      ]
-
-    },
+  "states": [
+    {
+      "id": "foundation"
+    }
+  ]
+}
+,
 
     {
       "id": "business-today",
