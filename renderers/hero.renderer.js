@@ -1,13 +1,14 @@
 export class HeroRenderer {
 
-  constructor(scene) {
+ constructor(scene) {
 
     this.scene = scene;
 
     this.root = null;
 
-  }
+    this.searchText = null;
 
+}
   resolveHeadline() {
 
     const headline =
@@ -104,6 +105,11 @@ render() {
 
     }
 
+  this.searchText =
+    section.querySelector(
+        "#search-text"
+    );
+  
     this.root = section;
 
     return section;
@@ -111,16 +117,15 @@ render() {
 }
 enter() {
 
-    console.log(
-        "[HeroRenderer] enter"
-    );
+    this.update({
+        id: "empty"
+    });
 
-    const searchText =
-        document.getElementById(
-            "search-text"
-        );
+}
 
-    if (!searchText) {
+update(state) {
+
+    if (!this.searchText) {
 
         return;
 
@@ -129,12 +134,43 @@ enter() {
     const text =
         this.resolveHeadline();
 
+    switch(state.id) {
+
+        case "empty":
+
+            this.searchText.textContent =
+                "";
+
+            break;
+
+        case "typing":
+
+            this.typeText(text);
+
+            break;
+
+        case "complete":
+
+            this.searchText.textContent =
+                text;
+
+            break;
+
+    }
+
+}
+
+typeText(text) {
+
+    this.searchText.textContent =
+        "";
+
     let index = 0;
 
     const timer =
         setInterval(() => {
 
-            searchText.textContent =
+            this.searchText.textContent =
                 text.slice(
                     0,
                     index
@@ -157,5 +193,6 @@ enter() {
 
 }
 
+}
 }
 
