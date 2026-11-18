@@ -124,18 +124,11 @@ body {
 #scene-active,
 #scene-incoming {
 
-    z-index: 30;
-
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    opacity: 0;
-
-    transition:
-    opacity 1s ease;
 
     position: absolute;
 
@@ -151,18 +144,23 @@ body {
 
     z-index: 20;
 
+    opacity: 1;
+
 }
 
 #scene-incoming {
 
     z-index: 30;
 
+    opacity: 0;
+
     pointer-events: none;
 
 }
-
 #scene-outgoing {
 
     z-index: 10;
+
+    opacity: 0;
 
 }
